@@ -75,37 +75,42 @@ kotlin {
 }
 
 android {
-namespace = "dev.coinroutine.app"
-compileSdk = libs.versions.android.compileSdk.get().toInt()
+    namespace = "fina.dario.cryptowallet"
+    compileSdk = libs.versions.android.compileSdk.get().toInt()
 
-defaultConfig {
-applicationId = "dev.coinroutine.app"
-minSdk = libs.versions.android.minSdk.get().toInt()
-targetSdk = libs.versions.android.targetSdk.get().toInt()
-versionCode = 1
-versionName = "1.0"
+    defaultConfig {
+        applicationId = "fina.dario.cryptowallet"
+        minSdk = libs.versions.android.minSdk.get().toInt()
+        targetSdk = libs.versions.android.targetSdk.get().toInt()
+        versionCode = 1
+        versionName = "1.0"
+    }
+    packaging {
+        resources {
+        excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
+    }
+    buildTypes {
+        getByName("release") {
+        isMinifyEnabled = false
+        }
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
 }
-packaging {
-resources {
-excludes += "/META-INF/{AL2.0,LGPL2.1}"
-}
-}
-buildTypes {
-getByName("release") {
-isMinifyEnabled = false
-}
-}
-compileOptions {
-sourceCompatibility = JavaVersion.VERSION_11
-targetCompatibility = JavaVersion.VERSION_11
-}
+
+compose.resources {
+    publicResClass = true
+    packageOfResClass = "fina.dario.cryptowallet.generated.resources"
 }
 
 room {
-schemaDirectory("$projectDir/schemas")
+    schemaDirectory("$projectDir/schemas")
 }
 
 dependencies {
-ksp(libs.room.compiler)
-debugImplementation(compose.uiTooling)
+    ksp(libs.room.compiler)
+    debugImplementation(compose.uiTooling)
 }

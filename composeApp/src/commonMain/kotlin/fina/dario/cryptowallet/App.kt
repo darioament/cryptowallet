@@ -16,8 +16,8 @@ import androidx.compose.ui.Modifier
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
-import cryptowallet.composeapp.generated.resources.Res
-import cryptowallet.composeapp.generated.resources.compose_multiplatform
+import fina.dario.cryptowallet.generated.resources.Res
+import fina.dario.cryptowallet.generated.resources.compose_multiplatform
 
 @Composable
 @Preview
